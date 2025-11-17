@@ -3,7 +3,7 @@
 
 import yaml
 import argparse
-from operations import overlay
+from operations import fade, overlay
 
 arg_parser = argparse.ArgumentParser()
 arg_parser.add_argument(
@@ -20,6 +20,7 @@ parsed_yaml = yaml.safe_load(yaml_file)
 
 operations = {
     "overlay": overlay.sar_overlay,
+    "fade": fade.sar_fade,
 }
 
 for pipeline_name in parsed_yaml:
