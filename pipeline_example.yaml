@@ -1,0 +1,28 @@
+paix_derange:
+  caillou_tombe:
+    operation: overlay
+    args:
+      source_file1: birds.mp3
+      source_file2: rock_one.mp3
+      position: 5000 # milliseconds
+      output_file: birds_overlayed.mp3
+  silence_apres_bruit:
+    operation: fade
+    args:
+      source_file: birds_overlayed.mp3
+      fade_in_position:  5800
+      fade_out_position:  7500
+      effect_duration: 500
+      output_file: birds_overlayed_fade.mp3
+  silence_int:
+    operation: cut
+    args:
+      source_file: birds_overlayed_fade.mp3
+      position: 8300
+      output_file: birds_singing_again.mp3
+  attention:
+    operation: append
+    args:
+      source_file: birds_singing_again.mp3
+      file_to_append: banshee_one_scream.wav
+      output_file: birds_final.mp3
