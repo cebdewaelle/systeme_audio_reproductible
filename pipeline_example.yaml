@@ -11,6 +11,6 @@ nom_de_la_pipeline:
     args:
       source_file: birds_overlayed.mp3
       fade_in_position:  30800
-      fade_out_position:  35000
+      fade_out_position:  37000
       effect_duration: 500
       output_file: birds_overlayed_fade.mp3
