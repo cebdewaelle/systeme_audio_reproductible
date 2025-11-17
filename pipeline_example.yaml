@@ -9,7 +9,8 @@ nom_de_la_pipeline:
   nom_de_l_operation2:
     operation: fade
     args:
-      source_file1: birds_overlayed.mp3
-      source_file2: rock_one.mp3
-      position: 1000 # milliseconds
-      output_file: birds_overlayed_with_rock.mp3
+      source_file: birds_overlayed.mp3
+      fade_in_position:  30800
+      fade_out_position:  35000
+      effect_duration: 500
+      output_file: birds_overlayed_fade.mp3
