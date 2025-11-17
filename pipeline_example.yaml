@@ -1,15 +1,6 @@
 nom_de_la_pipeline:
   overlay:
-    source: banshee_one_scream.wav
-    output: banshee_one_scream_reverb.wav
-  overlay:
-    source: birds.mp3
-    sound_effect: rock_one.mp3
+    source_file1: birds.mp3
+    source_file2: rock_one.mp3
     position: 30000 # milliseconds
-    output: birds_overlayed.mp3
-  fade:
-    source: birds_overlayed.mp3
-    from: 32000 
-    to: 32001
-    gain: 0
-    out: birds_overlayed_fade.mp3
+    output_file: birds_overlayed.mp3
