@@ -1,2 +1,43 @@
 # lis -> parse le yaml -> execute la pipeline
 # python3 main.py --pipeline pipeline.yaml
+
+import yaml
+import argparse
+from operations import fade, overlay
+
+arg_parser = argparse.ArgumentParser()
+arg_parser.add_argument(
+    "-p",
+    "--pipeline",
+    type=str,
+    required=True,
+    help="Emplacement du fichier yaml décrivant les traitements à effectuer",
+)
+args = arg_parser.parse_args()
+
+yaml_file = open(args.pipeline, "r")
+parsed_yaml = yaml.safe_load(yaml_file)
+
+operations = {
+    "overlay": overlay.overlay,
+    "fade": fade.fade,
+}
+
+for pipeline_name in parsed_yaml:
+    pipeline = parsed_yaml[pipeline_name]
+
+    # Premier loop pour s'assurer que toutes les operations sont valides
+    for operation_name in pipeline:
+        operation_args = pipeline[operation_name]
+        try:
+            _ = operations[operation_name]
+        except KeyError:
+            print(f"L'opération '{operation_name} n'existe pas'")
+            exit(1)
+
+    for operation_name in pipeline:
+        operation_args = pipeline[operation_name]
+        operations[operation_name](**operation_args)
+
+    # Seulement Une pipeline par fichier
+    break
