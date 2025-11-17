@@ -3,7 +3,7 @@
 
 import yaml
 import argparse
-from operations import overlay
+from operations import overlay, append, cut
 
 arg_parser = argparse.ArgumentParser()
 arg_parser.add_argument(
@@ -20,6 +20,8 @@ parsed_yaml = yaml.safe_load(yaml_file)
 
 operations = {
     "overlay": overlay.sar_overlay,
+    "append": append.sar_append,
+    "cut": cut.sar_cut,
 }
 
 for pipeline_name in parsed_yaml:
@@ -36,7 +38,6 @@ for pipeline_name in parsed_yaml:
             exit(1)
 
     for step in pipeline:
-        print(pipeline)
         operation_args = pipeline[step]["args"]
         operations[pipeline[step]["operation"]](**operation_args)
 

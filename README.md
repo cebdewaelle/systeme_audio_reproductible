@@ -9,6 +9,7 @@ python main.py --pipeline pipeline_example.yaml
 
 - append: ajoute un son après un autre
 - overlay: ajoute un son par dessus un autre
+- cut: coupe le fichier apres le temps determiné
 
 ## Sound licences
 
