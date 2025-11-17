@@ -26,17 +26,19 @@ for pipeline_name in parsed_yaml:
     pipeline = parsed_yaml[pipeline_name]
 
     # Premier loop pour s'assurer que toutes les operations sont valides
-    for operation_name in pipeline:
-        operation_args = pipeline[operation_name]
+    for step in pipeline:
         try:
-            _ = operations[operation_name]
+            _ = operations[pipeline[step]["operation"]]
         except KeyError:
-            print(f"L'opération '{operation_name} n'existe pas'")
+            print(
+                f"L'opération '{pipeline[step]["operation"]}' dans l'etape '{step}' n'existe pas'"
+            )
             exit(1)
 
-    for operation_name in pipeline:
-        operation_args = pipeline[operation_name]
-        operations[operation_name](**operation_args)
+    for step in pipeline:
+        print(pipeline)
+        operation_args = pipeline[step]["args"]
+        operations[pipeline[step]["operation"]](**operation_args)
 
     # Seulement Une pipeline par fichier
     break

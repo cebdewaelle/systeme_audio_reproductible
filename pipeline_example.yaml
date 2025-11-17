@@ -1,6 +1,15 @@
 nom_de_la_pipeline:
-  overlay:
-    source_file1: birds.mp3
-    source_file2: rock_one.mp3
-    position: 30000 # milliseconds
-    output_file: birds_overlayed.mp3
+  nom_de_l_operation:
+    operation: overlay
+    args:
+      source_file1: birds.mp3
+      source_file2: rock_one.mp3
+      position: 30000 # milliseconds
+      output_file: birds_overlayed.mp3
+  nom_de_l_operation2:
+    operation: fade
+    args:
+      source_file1: birds_overlayed.mp3
+      source_file2: rock_one.mp3
+      position: 1000 # milliseconds
+      output_file: birds_overlayed_with_rock.mp3
