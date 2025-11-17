@@ -10,6 +10,7 @@ python main.py --pipeline pipeline_example.yaml
 - append: ajoute un son après un autre
 - overlay: ajoute un son par dessus un autre
 - fade: baisse le volume sonore de la piste audio puis le réaugmente à un timecode donné
+- cut: coupe un fichier à l'endroit désigné
 
 ## Sound licences
 
