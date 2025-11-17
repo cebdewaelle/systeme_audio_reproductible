@@ -9,7 +9,7 @@ def sar_fade(source_file, fade_in_position, fade_out_position, effect_duration, 
 
     faded_sound = source.fade(to_gain=-30, start=fade_in_position, duration=effect_duration)
 
-    # faded_sound_2 = faded_sound.fade(to_gain=30, start=fade_out_position, duration=effect_duration)
+    faded_sound_2 = faded_sound.fade(to_gain=30, start=fade_out_position, duration=effect_duration)
 
     # momentum = position
 
@@ -19,5 +19,5 @@ def sar_fade(source_file, fade_in_position, fade_out_position, effect_duration, 
 
     # faded_sound = first_thirty_seconds.append(silence, crossfade=1000)
 
-    faded_sound.export(output_file, format="mp3")
+    faded_sound_2.export(output_file, format="mp3")
     return output_file
