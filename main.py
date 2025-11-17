@@ -3,7 +3,7 @@
 
 import yaml
 import argparse
-from operations import overlay, append, cut
+from operations import overlay, append, cut, fade
 
 arg_parser = argparse.ArgumentParser()
 arg_parser.add_argument(
@@ -22,6 +22,7 @@ operations = {
     "overlay": overlay.sar_overlay,
     "append": append.sar_append,
     "cut": cut.sar_cut,
+    "fade": fade.sar_fade,
 }
 
 for pipeline_name in parsed_yaml:
