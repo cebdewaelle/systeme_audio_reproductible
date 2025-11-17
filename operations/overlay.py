@@ -2,7 +2,7 @@ from pydub import AudioSegment
 import os
 
 
-def sar_overlay(source_file1, source_file2, output_file, position, gain_during_overlay):
+def sar_overlay(source_file1, source_file2, output_file, position):
 
     source_file1 = os.path.join("audio", source_file1)
     source_file2 = os.path.join("audio", source_file2)
